@@ -1,24 +1,21 @@
+import { Email } from "../common/email";
+import { Password } from "../common/password";
+
 export class UserModel {
   firstName: string;
   lastName: string;
-  email: string;
-  password: string;
+  email: Email;
+  password: Password;
 
   constructor(
     firstName: string,
     lastName: string,
-    email: string,
-    password: string,
+    email: Email,
+    password: Password,
   ) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(email.toLowerCase())) {
-      // todo throw some exception
-    } else if (password.length < 6) {
-      // todo throw some exception
-    } else {
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
-    }
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
   }
 }
